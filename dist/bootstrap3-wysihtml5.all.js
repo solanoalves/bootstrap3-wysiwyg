@@ -14610,46 +14610,58 @@ function program13(depth0,data) {
 function program15(depth0,data) {
   
   
-  return "\n      <span class=\"fa fa-list-ul\"></span>\n    ";
+  return "\n      <span class=\"fa fa-align-justify\"></span>\n    ";
   }
 
 function program17(depth0,data) {
   
   
-  return "\n      <span class=\"glyphicon glyphicon-list\"></span>\n    ";
+  return "\n      <span class=\"glyphicon glyphicon-align-justify\"></span>\n    ";
   }
 
 function program19(depth0,data) {
   
   
-  return "\n      <span class=\"fa fa-list-ol\"></span>\n    ";
+  return "\n      <span class=\"fa fa-list-ul\"></span>\n    ";
   }
 
 function program21(depth0,data) {
   
   
-  return "\n      <span class=\"glyphicon glyphicon-th-list\"></span>\n    ";
+  return "\n      <span class=\"glyphicon glyphicon-list\"></span>\n    ";
   }
 
 function program23(depth0,data) {
   
   
-  return "\n      <span class=\"fa fa-outdent\"></span>\n    ";
+  return "\n      <span class=\"fa fa-list-ol\"></span>\n    ";
   }
 
 function program25(depth0,data) {
   
   
-  return "\n      <span class=\"glyphicon glyphicon-indent-right\"></span>\n    ";
+  return "\n      <span class=\"glyphicon glyphicon-th-list\"></span>\n    ";
   }
 
 function program27(depth0,data) {
   
   
-  return "\n      <span class=\"fa fa-indent\"></span>\n    ";
+  return "\n      <span class=\"fa fa-outdent\"></span>\n    ";
   }
 
 function program29(depth0,data) {
+  
+  
+  return "\n      <span class=\"glyphicon glyphicon-indent-right\"></span>\n    ";
+  }
+
+function program31(depth0,data) {
+  
+  
+  return "\n      <span class=\"fa fa-indent\"></span>\n    ";
+  }
+
+function program33(depth0,data) {
   
   
   return "\n      <span class=\"glyphicon glyphicon-indent-left\"></span>\n    ";
@@ -14679,13 +14691,21 @@ function program29(depth0,data) {
     + "\" tabindex=\"-1\">\n    ";
   stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(13, program13, data),fn:self.program(11, program11, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n    </a>\n    <a class=\"btn ";
+  buffer += "\n    </a>\n    <!--<a class=\"btn ";
+  stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.size), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += " btn-default\" data-wysihtml5-command=\"justifyFull\" title=\""
+    + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.locale)),stack1 == null || stack1 === false ? stack1 : stack1.lists)),stack1 == null || stack1 === false ? stack1 : stack1.justifyAlign)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\" tabindex=\"-1\">\n    ";
+  stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(17, program17, data),fn:self.program(15, program15, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n  </a>-->\n    <a class=\"btn ";
   stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.size), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += " btn-default\" data-wysihtml5-command=\"insertUnorderedList\" title=\""
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.locale)),stack1 == null || stack1 === false ? stack1 : stack1.lists)),stack1 == null || stack1 === false ? stack1 : stack1.unordered)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "\" tabindex=\"-1\">\n    ";
-  stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(17, program17, data),fn:self.program(15, program15, data),data:data});
+  stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(21, program21, data),fn:self.program(19, program19, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n    </a>\n    <a class=\"btn ";
   stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.size), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
@@ -14693,7 +14713,7 @@ function program29(depth0,data) {
   buffer += " btn-default\" data-wysihtml5-command=\"insertOrderedList\" title=\""
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.locale)),stack1 == null || stack1 === false ? stack1 : stack1.lists)),stack1 == null || stack1 === false ? stack1 : stack1.ordered)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "\" tabindex=\"-1\">\n    ";
-  stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(21, program21, data),fn:self.program(19, program19, data),data:data});
+  stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(25, program25, data),fn:self.program(23, program23, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n    </a>\n    <a class=\"btn ";
   stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.size), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
@@ -14701,7 +14721,7 @@ function program29(depth0,data) {
   buffer += " btn-default\" data-wysihtml5-command=\"Outdent\" title=\""
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.locale)),stack1 == null || stack1 === false ? stack1 : stack1.lists)),stack1 == null || stack1 === false ? stack1 : stack1.outdent)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "\" tabindex=\"-1\">\n    ";
-  stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(25, program25, data),fn:self.program(23, program23, data),data:data});
+  stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(29, program29, data),fn:self.program(27, program27, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n    </a>\n    <a class=\"btn ";
   stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.size), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
@@ -14709,7 +14729,7 @@ function program29(depth0,data) {
   buffer += " btn-default\" data-wysihtml5-command=\"Indent\" title=\""
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.locale)),stack1 == null || stack1 === false ? stack1 : stack1.lists)),stack1 == null || stack1 === false ? stack1 : stack1.indent)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "\" tabindex=\"-1\">\n    ";
-  stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(29, program29, data),fn:self.program(27, program27, data),data:data});
+  stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(33, program33, data),fn:self.program(31, program31, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n    </a>\n  </div>\n</li>\n";
   return buffer;
@@ -14967,68 +14987,30 @@ function program29(depth0,data) {
       },
       useLineBreaks: false,
       parserRules: {
-       "classes": {
-        "wysiwyg-clear-both": 1,
-        "wysiwyg-clear-left": 1,
-        "wysiwyg-clear-right": 1,
-        "wysiwyg-color-aqua": 1,
-        "wysiwyg-color-black": 1,
-        "wysiwyg-color-blue": 1,
-        "wysiwyg-color-fuchsia": 1,
-        "wysiwyg-color-gray": 1,
-        "wysiwyg-color-green": 1,
-        "wysiwyg-color-lime": 1,
-        "wysiwyg-color-maroon": 1,
-        "wysiwyg-color-navy": 1,
-        "wysiwyg-color-olive": 1,
-        "wysiwyg-color-purple": 1,
-        "wysiwyg-color-red": 1,
-        "wysiwyg-color-silver": 1,
-        "wysiwyg-color-teal": 1,
-        "wysiwyg-color-white": 1,
-        "wysiwyg-color-yellow": 1,
-        "wysiwyg-float-left": 1,
-        "wysiwyg-float-right": 1,
-        "wysiwyg-font-size-x8": 1,
-        "wysiwyg-font-size-x9": 1,
-        "wysiwyg-font-size-x10": 1,
-        "wysiwyg-font-size-x11": 1,
-        "wysiwyg-font-size-x12": 1,
-        "wysiwyg-font-size-x13": 1,
-        "wysiwyg-font-size-x14": 1,
-        "wysiwyg-font-size-x15": 1,
-        "wysiwyg-font-size-x16": 1,
-        "wysiwyg-font-size-x17": 1,
-        "wysiwyg-font-size-x18": 1,
-        "wysiwyg-font-size-x19": 1,
-        "wysiwyg-font-size-x20": 1,
-        "wysiwyg-font-size-x21": 1,
-        "wysiwyg-font-size-x22": 1,
-        "wysiwyg-font-size-x23": 1,
-        "wysiwyg-font-size-x24": 1,
-        "wysiwyg-text-align-center": 1,
-        "wysiwyg-text-align-justify": 1,
-        "wysiwyg-text-align-left": 1,
-        "wysiwyg-text-align-right": 1
+       "classes": "any",
+       "classes_blacklist": {
+        "Apple-interchange-newline": 1,
+        "MsoNormal": 1,
+        "MsoPlainText": 1
        },
+       "comments": 1,
        "tags": {
         "a": {
          "check_attributes": {
-          "href": "url",
+          "href": "href",
+          "id": "any",
+          "rel": "any",
           "target": "any"
-         },
-         "set_attributes": {
-          "rel": "nofollow"
          }
         },
         "abbr": {
-         "rename_tag": "span"
+         "unwrap": 1
         },
         "acronym": {
          "rename_tag": "span"
         },
         "address": {
-         "rename_tag": "div"
+         "unwrap": 1
         },
         "applet": {
          "remove": 1
@@ -15036,12 +15018,8 @@ function program29(depth0,data) {
         "area": {
          "remove": 1
         },
-        "article": {
-         "rename_tag": "div"
-        },
-        "aside": {
-         "rename_tag": "div"
-        },
+        "article": null,
+        "aside": null,
         "audio": {
          "remove": 1
         },
@@ -15053,10 +15031,10 @@ function program29(depth0,data) {
          "remove": 1
         },
         "bdi": {
-         "rename_tag": "span"
+         "unwrap": 1
         },
         "bdo": {
-         "rename_tag": "span"
+         "unwrap": 1
         },
         "bgsound": {
          "remove": 1
@@ -15066,15 +15044,23 @@ function program29(depth0,data) {
          "set_class": "wysiwyg-font-size-larger"
         },
         "blink": {
-         "rename_tag": "span"
+         "unwrap": 1
         },
         "blockquote": {
+         "add_style": {
+          "align": "align_text"
+         },
          "check_attributes": {
-          "cite": "url"
+          "cite": "url",
+          "id": "any"
+         },
+         "keep_styles": {
+          "float": 1,
+          "textAlign": 1
          }
         },
         "body": {
-         "rename_tag": "div"
+         "unwrap": 1
         },
         "br": {
          "add_class": {
@@ -15082,20 +15068,13 @@ function program29(depth0,data) {
          }
         },
         "button": {
-         "rename_tag": "span"
+         "unwrap": 1
         },
         "canvas": {
          "remove": 1
         },
-        "caption": {
-         "add_class": {
-          "align": "align_text"
-         }
-        },
-        "center": {
-         "rename_tag": "div",
-         "set_class": "wysiwyg-text-align-center"
-        },
+        "caption": null,
+        "center": null,
         "cite": {},
         "code": {},
         "col": {
@@ -15105,55 +15084,67 @@ function program29(depth0,data) {
          "remove": 1
         },
         "command": {
-         "remove": 1
+         "unwrap": 1
         },
         "comment": {
          "remove": 1
         },
         "datalist": {
-         "rename_tag": "span"
+         "unwrap": 1
         },
         "dd": {
-         "rename_tag": "div"
+         "unwrap": 1
         },
         "del": {
-         "remove": 1
+         "unwrap": 1
         },
         "details": {
-         "rename_tag": "div"
+         "unwrap": 1
         },
         "device": {
          "remove": 1
         },
         "dfn": {
-         "rename_tag": "span"
+         "unwrap": 1
         },
         "dir": {
          "rename_tag": "ul"
         },
         "div": {
-         "add_class": {
+         "add_style": {
           "align": "align_text"
-         }
+         },
+         "check_attributes": {
+          "contenteditable": "any",
+          "id": "any"
+         },
+         "keep_styles": {
+          "float": 1,
+          "textAlign": 1
+         },
+         "one_of_type": {
+          "alignment_object": 1
+         },
+         "remove_action": "unwrap"
         },
         "dl": {
-         "rename_tag": "div"
+         "unwrap": 1
         },
         "dt": {
-         "rename_tag": "span"
+         "unwrap": 1
         },
         "em": {},
         "embed": {
          "remove": 1
         },
         "fieldset": {
-         "rename_tag": "div"
+         "unwrap": 1
         },
         "figcaption": {
-         "rename_tag": "div"
+         "unwrap": 1
         },
         "figure": {
-         "rename_tag": "div"
+         "unwrap": 1
         },
         "font": {
          "add_class": {
@@ -15162,10 +15153,24 @@ function program29(depth0,data) {
          "rename_tag": "span"
         },
         "footer": {
+         "add_style": {
+          "align": "align_text"
+         },
+         "check_attributes": {
+          "id": "any"
+         },
+         "keep_styles": {
+          "float": 1,
+          "textAlign": 1
+         },
+         "one_of_type": {
+          "alignment_object": 1
+         },
+         "remove_action": "unwrap",
          "rename_tag": "div"
         },
         "form": {
-         "rename_tag": "div"
+         "unwrap": 1
         },
         "frame": {
          "remove": 1
@@ -15173,52 +15178,44 @@ function program29(depth0,data) {
         "frameset": {
          "remove": 1
         },
-        "h1": {
-         "add_class": {
-          "align": "align_text"
-         }
-        },
-        "h2": {
-         "add_class": {
-          "align": "align_text"
-         }
-        },
-        "h3": {
-         "add_class": {
-          "align": "align_text"
-         }
-        },
+        "h1": null,
+        "h2": null,
+        "h3": null,
         "h4": {
-         "add_class": {
+         "add_style": {
           "align": "align_text"
+         },
+         "check_attributes": {
+          "id": "any"
+         },
+         "keep_styles": {
+          "float": 1,
+          "textAlign": {}
          }
         },
-        "h5": {
-         "add_class": {
-          "align": "align_text"
-         }
-        },
-        "h6": {
-         "add_class": {
-          "align": "align_text"
-         }
-        },
+        "h5": null,
+        "h6": null,
         "head": {
-         "remove": 1
+         "unwrap": 1
         },
-        "header": {
-         "rename_tag": "div"
-        },
+        "header": null,
         "hgroup": {
-         "rename_tag": "div"
+         "unwrap": 1
         },
         "hr": {},
         "html": {
-         "rename_tag": "div"
+         "unwrap": 1
         },
         "i": {},
         "iframe": {
-         "remove": 1
+         "check_attributes": {
+          "frameborder": "any",
+          "height": "any",
+          "id": "any",
+          "src": "any",
+          "style": "any",
+          "width": "any"
+         }
         },
         "img": {
          "add_class": {
@@ -15227,46 +15224,50 @@ function program29(depth0,data) {
          "check_attributes": {
           "alt": "alt",
           "height": "numbers",
-          "src": "url",
+          "id": "any",
+          "src": "src",
           "width": "numbers"
+         },
+         "one_of_type": {
+          "valid_image_src": 1
          }
         },
         "input": {
          "remove": 1
         },
         "ins": {
-         "rename_tag": "span"
+         "unwrap": 1
         },
         "isindex": {
          "remove": 1
         },
         "kbd": {
-         "rename_tag": "span"
+         "unwrap": 1
         },
         "keygen": {
          "remove": 1
         },
         "label": {
-         "rename_tag": "span"
+         "unwrap": 1
         },
         "legend": {
-         "rename_tag": "span"
+         "unwrap": 1
         },
         "li": {},
         "link": {
          "remove": 1
         },
         "listing": {
-         "rename_tag": "div"
+         "unwrap": 1
         },
         "map": {
-         "rename_tag": "div"
+         "remove": 1
         },
         "mark": {
-         "rename_tag": "span"
+         "unwrap": 1
         },
         "marquee": {
-         "rename_tag": "span"
+         "unwrap": 1
         },
         "menu": {
          "rename_tag": "ul"
@@ -15275,19 +15276,19 @@ function program29(depth0,data) {
          "remove": 1
         },
         "meter": {
-         "rename_tag": "span"
+         "unwrap": 1
         },
         "multicol": {
-         "rename_tag": "div"
+         "unwrap": 1
         },
         "nav": {
-         "rename_tag": "div"
+         "unwrap": 1
         },
         "nextid": {
          "remove": 1
         },
         "nobr": {
-         "rename_tag": "span"
+         "unwrap": 1
         },
         "noembed": {
          "remove": 1
@@ -15303,24 +15304,20 @@ function program29(depth0,data) {
         },
         "ol": {},
         "optgroup": {
-         "rename_tag": "span"
+         "unwrap": 1
         },
         "option": {
-         "rename_tag": "span"
+         "remove": 1
         },
         "output": {
-         "rename_tag": "span"
+         "unwrap": 1
         },
-        "p": {
-         "add_class": {
-          "align": "align_text"
-         }
-        },
+        "p": null,
         "param": {
          "remove": 1
         },
         "plaintext": {
-         "rename_tag": "span"
+         "unwrap": 1
         },
         "pre": {},
         "progress": {
@@ -15328,35 +15325,38 @@ function program29(depth0,data) {
         },
         "q": {
          "check_attributes": {
-          "cite": "url"
+          "cite": "url",
+          "id": "any"
          }
         },
         "rb": {
-         "rename_tag": "span"
+         "unwrap": 1
         },
         "rp": {
-         "rename_tag": "span"
+         "unwrap": 1
         },
         "rt": {
          "rename_tag": "span"
         },
         "ruby": {
-         "rename_tag": "span"
+         "unwrap": 1
         },
         "s": {
-         "rename_tag": "span"
+         "unwrap": 1
         },
         "samp": {
-         "rename_tag": "span"
+         "unwrap": 1
         },
         "script": {
-         "remove": 1
+         "check_attributes": {
+          "charset": "any",
+          "src": "any",
+          "type": "any"
+         }
         },
-        "section": {
-         "rename_tag": "div"
-        },
+        "section": null,
         "select": {
-         "rename_tag": "span"
+         "remove": 1
         },
         "small": {
          "rename_tag": "span",
@@ -15368,84 +15368,131 @@ function program29(depth0,data) {
         "spacer": {
          "remove": 1
         },
-        "span": {},
+        "span": {
+         "check_attributes": {
+          "id": "any"
+         },
+         "keep_styles": {
+          "backgroundColor": 1,
+          "color": 1,
+          "fontSize": 1
+         },
+         "one_of_type": {
+          "text_color_object": 1,
+          "text_fontsize_object": 1,
+          "text_formatting_object": 1
+         },
+         "remove_action": "unwrap"
+        },
         "strike": {
-         "remove": 1
+         "unwrap": 1
         },
         "strong": {},
         "style": {
-         "remove": 1
+         "check_attributes": {
+          "charset": "any",
+          "src": "any",
+          "type": "any"
+         }
         },
         "sub": {
-         "rename_tag": "span"
+         "unwrap": 1
         },
         "summary": {
-         "rename_tag": "span"
+         "unwrap": 1
         },
         "sup": {
-         "rename_tag": "span"
+         "unwrap": 1
         },
         "svg": {
          "remove": 1
         },
-        "table": {},
-        "tbody": {
-         "add_class": {
-          "align": "align_text"
+        "table": {
+         "check_attributes": {
+          "id": "any"
+         },
+         "keep_styles": {
+          "float": 1,
+          "textAlign": 1,
+          "width": 1
          }
         },
+        "tbody": null,
         "td": {
-         "add_class": {
+         "add_style": {
           "align": "align_text"
          },
          "check_attributes": {
+          "align": "any",
+          "class": "any",
           "colspan": "numbers",
-          "rowspan": "numbers"
+          "id": "any",
+          "rowspan": "numbers",
+          "valign": "any"
+         },
+         "keep_styles": {
+          "backgroundColor": 1,
+          "height": 1,
+          "width": 1
          }
         },
         "textarea": {
-         "rename_tag": "span"
+         "unwrap": 1
         },
-        "tfoot": {
-         "add_class": {
-          "align": "align_text"
-         }
-        },
+        "tfoot": null,
         "th": {
-         "add_class": {
+         "add_style": {
           "align": "align_text"
          },
          "check_attributes": {
+          "align": "any",
           "colspan": "numbers",
-          "rowspan": "numbers"
+          "id": "any",
+          "rowspan": "numbers",
+          "valign": "any"
+         },
+         "keep_styles": {
+          "backgroundColor": 1,
+          "height": 1,
+          "width": 1
          }
         },
         "thead": {
-         "add_class": {
+         "add_style": {
           "align": "align_text"
+         },
+         "check_attributes": {
+          "id": "any"
          }
         },
         "time": {
-         "rename_tag": "span"
+         "unwrap": 1
         },
         "title": {
          "remove": 1
         },
         "tr": {
-         "add_class": {
+         "add_style": {
           "align": "align_text"
+         },
+         "check_attributes": {
+          "id": "any"
          }
         },
         "track": {
          "remove": 1
         },
         "tt": {
-         "rename_tag": "span"
+         "unwrap": 1
         },
         "u": {},
-        "ul": {},
+        "ul": {
+         "check_attributes": {
+          "id": "any"
+         }
+        },
         "var": {
-         "rename_tag": "span"
+         "unwrap": 1
         },
         "video": {
          "remove": 1
@@ -15457,7 +15504,92 @@ function program29(depth0,data) {
          "remove": 1
         },
         "xmp": {
-         "rename_tag": "span"
+         "unwrap": 1
+        }
+       },
+       "type_definitions": {
+        "alignment_object": {
+         "classes": {
+          "wysiwyg-float-left": 1,
+          "wysiwyg-float-right": 1,
+          "wysiwyg-text-align-center": 1,
+          "wysiwyg-text-align-justify": 1,
+          "wysiwyg-text-align-left": 1,
+          "wysiwyg-text-align-right": 1
+         },
+         "styles": {
+          "float": [
+           "left",
+           "right"
+          ],
+          "text-align": [
+           "left",
+           "right",
+           "center"
+          ]
+         }
+        },
+        "text_color_object": {
+         "styles": {
+          "background-color": true,
+          "color": true
+         }
+        },
+        "text_fontsize_object": {
+         "styles": {
+          "font-size": true
+         }
+        },
+        "text_formatting_object": {
+          "classes": {
+           "wysiwyg-clear-both": 1,
+           "wysiwyg-clear-left": 1,
+           "wysiwyg-clear-right": 1,
+           "wysiwyg-color-aqua": 1,
+           "wysiwyg-color-black": 1,
+           "wysiwyg-color-blue": 1,
+           "wysiwyg-color-fuchsia": 1,
+           "wysiwyg-color-gray": 1,
+           "wysiwyg-color-green": 1,
+           "wysiwyg-color-lime": 1,
+           "wysiwyg-color-maroon": 1,
+           "wysiwyg-color-navy": 1,
+           "wysiwyg-color-olive": 1,
+           "wysiwyg-color-purple": 1,
+           "wysiwyg-color-red": 1,
+           "wysiwyg-color-silver": 1,
+           "wysiwyg-color-teal": 1,
+           "wysiwyg-color-white": 1,
+           "wysiwyg-color-yellow": 1,
+           "wysiwyg-float-left": 1,
+           "wysiwyg-float-right": 1,
+           "wysiwyg-font-size-x8": 1,
+           "wysiwyg-font-size-x9": 1,
+           "wysiwyg-font-size-x10": 1,
+           "wysiwyg-font-size-x11": 1,
+           "wysiwyg-font-size-x12": 1,
+           "wysiwyg-font-size-x13": 1,
+           "wysiwyg-font-size-x14": 1,
+           "wysiwyg-font-size-x15": 1,
+           "wysiwyg-font-size-x16": 1,
+           "wysiwyg-font-size-x17": 1,
+           "wysiwyg-font-size-x18": 1,
+           "wysiwyg-font-size-x19": 1,
+           "wysiwyg-font-size-x20": 1,
+           "wysiwyg-font-size-x21": 1,
+           "wysiwyg-font-size-x22": 1,
+           "wysiwyg-font-size-x23": 1,
+           "wysiwyg-font-size-x24": 1,
+           "wysiwyg-text-align-center": 1,
+           "wysiwyg-text-align-justify": 1,
+           "wysiwyg-text-align-left": 1,
+           "wysiwyg-text-align-right": 1
+          }
+        },
+        "valid_image_src": {
+         "attrs": {
+          "src": {}
+         }
         }
        }
       },

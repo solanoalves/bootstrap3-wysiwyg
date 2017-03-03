@@ -448,46 +448,58 @@ function program13(depth0,data) {
 function program15(depth0,data) {
   
   
-  return "\n      <span class=\"fa fa-list-ul\"></span>\n    ";
+  return "\n      <span class=\"fa fa-align-justify\"></span>\n    ";
   }
 
 function program17(depth0,data) {
   
   
-  return "\n      <span class=\"glyphicon glyphicon-list\"></span>\n    ";
+  return "\n      <span class=\"glyphicon glyphicon-align-justify\"></span>\n    ";
   }
 
 function program19(depth0,data) {
   
   
-  return "\n      <span class=\"fa fa-list-ol\"></span>\n    ";
+  return "\n      <span class=\"fa fa-list-ul\"></span>\n    ";
   }
 
 function program21(depth0,data) {
   
   
-  return "\n      <span class=\"glyphicon glyphicon-th-list\"></span>\n    ";
+  return "\n      <span class=\"glyphicon glyphicon-list\"></span>\n    ";
   }
 
 function program23(depth0,data) {
   
   
-  return "\n      <span class=\"fa fa-outdent\"></span>\n    ";
+  return "\n      <span class=\"fa fa-list-ol\"></span>\n    ";
   }
 
 function program25(depth0,data) {
   
   
-  return "\n      <span class=\"glyphicon glyphicon-indent-right\"></span>\n    ";
+  return "\n      <span class=\"glyphicon glyphicon-th-list\"></span>\n    ";
   }
 
 function program27(depth0,data) {
   
   
-  return "\n      <span class=\"fa fa-indent\"></span>\n    ";
+  return "\n      <span class=\"fa fa-outdent\"></span>\n    ";
   }
 
 function program29(depth0,data) {
+  
+  
+  return "\n      <span class=\"glyphicon glyphicon-indent-right\"></span>\n    ";
+  }
+
+function program31(depth0,data) {
+  
+  
+  return "\n      <span class=\"fa fa-indent\"></span>\n    ";
+  }
+
+function program33(depth0,data) {
   
   
   return "\n      <span class=\"glyphicon glyphicon-indent-left\"></span>\n    ";
@@ -517,13 +529,21 @@ function program29(depth0,data) {
     + "\" tabindex=\"-1\">\n    ";
   stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(13, program13, data),fn:self.program(11, program11, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n    </a>\n    <a class=\"btn ";
+  buffer += "\n    </a>\n    <!--<a class=\"btn ";
+  stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.size), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += " btn-default\" data-wysihtml5-command=\"justifyFull\" title=\""
+    + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.locale)),stack1 == null || stack1 === false ? stack1 : stack1.lists)),stack1 == null || stack1 === false ? stack1 : stack1.justifyAlign)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\" tabindex=\"-1\">\n    ";
+  stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(17, program17, data),fn:self.program(15, program15, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n  </a>-->\n    <a class=\"btn ";
   stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.size), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += " btn-default\" data-wysihtml5-command=\"insertUnorderedList\" title=\""
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.locale)),stack1 == null || stack1 === false ? stack1 : stack1.lists)),stack1 == null || stack1 === false ? stack1 : stack1.unordered)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "\" tabindex=\"-1\">\n    ";
-  stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(17, program17, data),fn:self.program(15, program15, data),data:data});
+  stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(21, program21, data),fn:self.program(19, program19, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n    </a>\n    <a class=\"btn ";
   stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.size), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
@@ -531,7 +551,7 @@ function program29(depth0,data) {
   buffer += " btn-default\" data-wysihtml5-command=\"insertOrderedList\" title=\""
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.locale)),stack1 == null || stack1 === false ? stack1 : stack1.lists)),stack1 == null || stack1 === false ? stack1 : stack1.ordered)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "\" tabindex=\"-1\">\n    ";
-  stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(21, program21, data),fn:self.program(19, program19, data),data:data});
+  stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(25, program25, data),fn:self.program(23, program23, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n    </a>\n    <a class=\"btn ";
   stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.size), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
@@ -539,7 +559,7 @@ function program29(depth0,data) {
   buffer += " btn-default\" data-wysihtml5-command=\"Outdent\" title=\""
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.locale)),stack1 == null || stack1 === false ? stack1 : stack1.lists)),stack1 == null || stack1 === false ? stack1 : stack1.outdent)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "\" tabindex=\"-1\">\n    ";
-  stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(25, program25, data),fn:self.program(23, program23, data),data:data});
+  stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(29, program29, data),fn:self.program(27, program27, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n    </a>\n    <a class=\"btn ";
   stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.size), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
@@ -547,7 +567,7 @@ function program29(depth0,data) {
   buffer += " btn-default\" data-wysihtml5-command=\"Indent\" title=\""
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.locale)),stack1 == null || stack1 === false ? stack1 : stack1.lists)),stack1 == null || stack1 === false ? stack1 : stack1.indent)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "\" tabindex=\"-1\">\n    ";
-  stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(29, program29, data),fn:self.program(27, program27, data),data:data});
+  stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(33, program33, data),fn:self.program(31, program31, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n    </a>\n  </div>\n</li>\n";
   return buffer;
