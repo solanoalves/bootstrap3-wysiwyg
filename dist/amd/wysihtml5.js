@@ -1,7 +1,7 @@
 define('wysihtml5', ['rangy', 'rangy-selectionsaverestore'], function (rangy) {
                 window.rangy = rangy;
 
-// TODO: in future try to replace most inline compability checks with polyfills for code readability 
+// TODO: in future try to replace most inline compability checks with polyfills for code readability
 
 // element.textContent polyfill.
 // Unsupporting browsers: IE8
@@ -79,7 +79,7 @@ var wysihtml5 = {
         define(factory);
 /*
     TODO: look into this properly.
-    
+
     } else if (typeof exports == "object") {
         // Node/CommonJS style for Browserify
         module.exports = factory;
@@ -398,11 +398,11 @@ var wysihtml5 = {
                     throw new Error("required module '" + moduleName + "' not supported");
                 }
             }
-            
+
             // Now run initializer
             this.initializer(this);
         },
-        
+
         fail: function(reason) {
             this.initialized = true;
             this.supported = false;
@@ -422,7 +422,7 @@ var wysihtml5 = {
             return new Error("Error in Rangy " + this.name + " module: " + msg);
         }
     };
-    
+
     function createModule(isCore, name, dependencies, initFunc) {
         var newModule = new Module(name, dependencies, function(module) {
             if (!module.initialized) {
@@ -506,7 +506,7 @@ var wysihtml5 = {
     addListener(window, "load", loadHandler);
 
     /*----------------------------------------------------------------------------------------------------------------*/
-    
+
     // DOM utility methods used by Rangy
     api.createCoreModule("DomUtil", [], function(api, module) {
         var UNDEF = "undefined";
@@ -1482,7 +1482,7 @@ var wysihtml5 = {
             }
             range.setStartAndEnd(sc, so, ec, eo);
         }
-        
+
         function rangeToHtml(range) {
             assertRangeValid(range);
             var container = range.commonAncestorContainer.parentNode.cloneNode(false);
@@ -1781,7 +1781,7 @@ var wysihtml5 = {
                 this.setStartAfter(node);
                 this.collapse(true);
             },
-            
+
             getBookmark: function(containerNode) {
                 var doc = getRangeDocument(this);
                 var preSelectionRange = api.createRange(doc);
@@ -1801,7 +1801,7 @@ var wysihtml5 = {
                     containerNode: containerNode
                 };
             },
-            
+
             moveToBookmark: function(bookmark) {
                 var containerNode = bookmark.containerNode;
                 var charIndex = 0;
@@ -1843,11 +1843,11 @@ var wysihtml5 = {
             isValid: function() {
                 return isRangeValid(this);
             },
-            
+
             inspect: function() {
                 return inspect(this);
             },
-            
+
             detach: function() {
                 // In DOM4, detach() is now a no-op.
             }
@@ -1984,7 +1984,7 @@ var wysihtml5 = {
 
                     boundaryUpdater(this, sc, so, ec, eo);
                 },
-                
+
                 setBoundary: function(node, offset, isStart) {
                     this["set" + (isStart ? "Start" : "End")](node, offset);
                 },
@@ -2179,7 +2179,7 @@ var wysihtml5 = {
 
     /*----------------------------------------------------------------------------------------------------------------*/
 
-    // Wrappers for the browser's native DOM Range and/or TextRange implementation 
+    // Wrappers for the browser's native DOM Range and/or TextRange implementation
     api.createCoreModule("WrappedRange", ["DomRange"], function(api, module) {
         var WrappedRange, WrappedTextRange;
         var dom = api.dom;
@@ -2445,7 +2445,7 @@ var wysihtml5 = {
                 };
             })();
         }
-        
+
         if (api.features.implementsTextRange) {
             /*
             This is a workaround for a bug where IE returns the wrong container element from the TextRange's parentElement()
@@ -2567,11 +2567,11 @@ var wysihtml5 = {
                         For the particular case of a boundary within a text node containing rendered line breaks (within a
                         <pre> element, for example), we need a slightly complicated approach to get the boundary's offset in
                         IE. The facts:
-                        
+
                         - Each line break is represented as \r in the text node's data/nodeValue properties
                         - Each line break is represented as \r\n in the TextRange's 'text' property
                         - The 'text' property of the TextRange does not contain trailing line breaks
-                        
+
                         To get round the problem presented by the final fact above, we can use the fact that TextRange's
                         moveStart() and moveEnd() methods return the actual number of characters moved, which is not
                         necessarily the same as the number of characters it was instructed to move. The simplest approach is
@@ -2580,13 +2580,13 @@ var wysihtml5 = {
                         "move-negative-gazillion" method). However, this is extremely slow when the document is large and
                         the range is near the end of it. Clearly doing the mirror image (i.e. moving the range boundaries to
                         the end of the document) has the same problem.
-                        
+
                         Another approach that works is to use moveStart() to move the start boundary of the range up to the
                         end boundary one character at a time and incrementing a counter with the value returned by the
                         moveStart() call. However, the check for whether the start boundary has reached the end boundary is
                         expensive, so this method is slow (although unlike "move-negative-gazillion" is largely unaffected
                         by the location of the range within the document).
-                        
+
                         The approach used below is a hybrid of the two methods above. It uses the fact that a string
                         containing the TextRange's 'text' property with each \r\n converted to a single \r character cannot
                         be longer than the text of the TextRange, so the start of the range is moved that length initially
@@ -2842,7 +2842,7 @@ var wysihtml5 = {
         function getDocSelection(winParam) {
             return getWindow(winParam, "getDocSelection").document.selection;
         }
-        
+
         function winSelectionIsBackward(sel) {
             var backward = false;
             if (sel.anchorNode) {
@@ -2893,7 +2893,7 @@ var wysihtml5 = {
         // Test for existence of native selection extend() method
         var selectionHasExtend = isHostMethod(testSelection, "extend");
         features.selectionHasExtend = selectionHasExtend;
-        
+
         // Test if rangeCount exists
         var selectionHasRangeCount = (typeof testSelection.rangeCount == NUMBER);
         features.selectionHasRangeCount = selectionHasRangeCount;
@@ -2927,11 +2927,11 @@ var wysihtml5 = {
                     var originalSelectionRangeCount = sel.rangeCount;
                     var selectionHasMultipleRanges = (originalSelectionRangeCount > 1);
                     var originalSelectionRanges = [];
-                    var originalSelectionBackward = winSelectionIsBackward(sel); 
+                    var originalSelectionBackward = winSelectionIsBackward(sel);
                     for (var i = 0; i < originalSelectionRangeCount; ++i) {
                         originalSelectionRanges[i] = sel.getRangeAt(i);
                     }
-                    
+
                     // Create some test elements
                     var body = getBody(document);
                     var testEl = body.appendChild( document.createElement("div") );
@@ -3650,7 +3650,7 @@ var wysihtml5 = {
             } );
             return results;
         };
-        
+
         function createStartOrEndSetter(isStart) {
             return function(node, offset) {
                 var range;
@@ -3667,7 +3667,7 @@ var wysihtml5 = {
 
         selProto.setStart = createStartOrEndSetter(true);
         selProto.setEnd = createStartOrEndSetter(false);
-        
+
         // Add select() method to Range prototype. Any existing selection will be removed.
         api.rangePrototype.select = function(direction) {
             getSelection( this.getDocument() ).setSingleRange(this, direction);
@@ -3733,7 +3733,7 @@ var wysihtml5 = {
                     if (isTextRange(range)) {
                         return range;
                     } else {
-                        throw module.createError("getNativeTextRange: selection is a control selection"); 
+                        throw module.createError("getNativeTextRange: selection is a control selection");
                     }
                 } else if (this.rangeCount > 0) {
                     return api.WrappedTextRange.rangeToTextRange( this.getRangeAt(0) );
@@ -3791,7 +3791,7 @@ var wysihtml5 = {
             win = null;
         });
     });
-    
+
 
     /*----------------------------------------------------------------------------------------------------------------*/
 
@@ -4044,7 +4044,7 @@ var wysihtml5 = {
             removeMarkers: removeMarkers
         });
     });
-    
+
 }, this);;/*
 	Base.js, version 1.1a
 	Copyright 2006-2010, Dean Edwards
@@ -4057,7 +4057,7 @@ var Base = function() {
 
 Base.extend = function(_instance, _static) { // subclass
 	var extend = Base.prototype.extend;
-	
+
 	// build the prototype
 	Base._prototyping = true;
 	var proto = new this;
@@ -4066,7 +4066,7 @@ Base.extend = function(_instance, _static) { // subclass
     // call this method from any other method to invoke that method's ancestor
   };
 	delete Base._prototyping;
-	
+
 	// create the wrapper for the constructor function
 	//var constructor = proto.constructor.valueOf(); //-dean
 	var constructor = proto.constructor;
@@ -4081,7 +4081,7 @@ Base.extend = function(_instance, _static) { // subclass
 			}
 		}
 	};
-	
+
 	// build the class interface
 	klass.ancestor = this;
 	klass.extend = this.extend;
@@ -4099,7 +4099,7 @@ Base.extend = function(_instance, _static) { // subclass
 	return klass;
 };
 
-Base.prototype = {	
+Base.prototype = {
 	extend: function(source, value) {
 		if (arguments.length > 1) { // extending with a name/value pair
 			var ancestor = this[source];
@@ -4158,7 +4158,7 @@ Base = Base.extend({
 }, {
 	ancestor: Object,
 	version: "1.1",
-	
+
 	forEach: function(object, block, context) {
 		for (var key in object) {
 			if (this.prototype[key] === undefined) {
@@ -4166,7 +4166,7 @@ Base = Base.extend({
 			}
 		}
 	},
-		
+
 	implement: function() {
 		for (var i = 0; i < arguments.length; i++) {
 			if (typeof arguments[i] == "function") {
@@ -4179,7 +4179,7 @@ Base = Base.extend({
 		}
 		return this;
 	},
-	
+
 	toString: function() {
 		return String(this.valueOf());
 	}
@@ -5340,7 +5340,7 @@ wysihtml5.dom.copyAttributes = function(attributesToCopy) {
       prev: function(options) {
         var prevNode = node.previousSibling,
             types = (options && options.nodeTypes) ? options.nodeTypes : defaultNodeTypes;
-        
+
         if (!prevNode) {
           return null;
         }
@@ -5351,7 +5351,7 @@ wysihtml5.dom.copyAttributes = function(attributesToCopy) {
         ) {
           return wysihtml5.dom.domNode(prevNode).prev(options);
         }
-        
+
         return prevNode;
       },
 
@@ -5359,7 +5359,7 @@ wysihtml5.dom.copyAttributes = function(attributesToCopy) {
       next: function(options) {
         var nextNode = node.nextSibling,
             types = (options && options.nodeTypes) ? options.nodeTypes : defaultNodeTypes;
-        
+
         if (!nextNode) {
           return null;
         }
@@ -5370,7 +5370,7 @@ wysihtml5.dom.copyAttributes = function(attributesToCopy) {
         ) {
           return wysihtml5.dom.domNode(nextNode).next(options);
         }
-        
+
         return nextNode;
       }
 
@@ -8304,12 +8304,12 @@ wysihtml5.dom.query = function(elements, query) {
     }
     node.parentNode.removeChild(node);
   }
-};;/* 
+};;/*
  * Methods for fetching pasted html before it gets inserted into content
 **/
 
 /* Modern event.clipboardData driven approach.
- * Advantage is that it does not have to loose selection or modify dom to catch the data. 
+ * Advantage is that it does not have to loose selection or modify dom to catch the data.
  * IE does not support though.
 **/
 wysihtml5.dom.getPastedHtml = function(event) {
@@ -8329,7 +8329,7 @@ wysihtml5.dom.getPastedHtmlWithDiv = function (composer, f) {
   var selBookmark = composer.selection.getBookmark(),
       doc = composer.element.ownerDocument,
       cleanerDiv = doc.createElement('DIV');
-  
+
   doc.body.appendChild(cleanerDiv);
 
   cleanerDiv.style.width = "1px";
@@ -9010,7 +9010,7 @@ wysihtml5.quirks.ensureProperClearing = (function() {
           s = this.getSelection(),
           range = this.getRange(),
           startNode = range.startContainer;
-      
+
       if (startNode.nodeType === wysihtml5.TEXT_NODE) {
         return this.isCollapsed() && (startNode.nodeType === wysihtml5.TEXT_NODE && (/^\s*$/).test(startNode.data.substr(0,range.startOffset)));
       } else {
@@ -10934,7 +10934,7 @@ wysihtml5.commands.formatCode = {
 
   function _getApplier(tagName, className, classRegExp, cssStyle, styleRegExp, container) {
     var identifier = tagName;
-    
+
     if (className) {
       identifier += ":" + className;
     }
@@ -11052,7 +11052,7 @@ wysihtml5.commands.formatCode = {
           if (composer.selection.isCollapsed()) {
             composer.selection.selectLine();
           }
-          
+
           if (endToEndParent) {
             var qouteEl = endToEndParent.ownerDocument.createElement('blockquote');
             wysihtml5.dom.insert(qouteEl).after(endToEndParent);
@@ -11336,10 +11336,10 @@ wysihtml5.commands.formatCode = {
           }),
           isEmpty, list;
 
-      // This space causes new lists to never break on enter 
+      // This space causes new lists to never break on enter
       var INVISIBLE_SPACE_REG_EXP = /\uFEFF/g;
       tempElement.innerHTML = tempElement.innerHTML.replace(INVISIBLE_SPACE_REG_EXP, "");
-      
+
       if (tempElement) {
         isEmpty = wysihtml5.lang.array(["", "<br>", wysihtml5.INVISIBLE_SPACE]).contains(tempElement.innerHTML);
         list = wysihtml5.dom.convertToList(tempElement, nodeName.toLowerCase(), composer.parent.config.uneditableContainerClassname);
@@ -11481,6 +11481,20 @@ wysihtml5.commands.formatCode = {
       REG_EXP = /(\s|^)text-align\s*:\s*[^;\s]+;?/gi;
 
   wysihtml5.commands.alignCenterStyle = {
+    exec: function(composer, command) {
+      return wysihtml5.commands.formatBlock.exec(composer, "formatBlock", null, null, null, STYLE_STR, REG_EXP);
+    },
+
+    state: function(composer, command) {
+      return wysihtml5.commands.formatBlock.state(composer, "formatBlock", null, null, null, STYLE_STR, REG_EXP);
+    }
+  };
+})(wysihtml5);
+;(function(wysihtml5) {
+  var STYLE_STR  = "text-align: justify;",
+      REG_EXP = /(\s|^)text-align\s*:\s*[^;\s]+;?/gi;
+
+  wysihtml5.commands.alignJustifyStyle = {
     exec: function(composer, command) {
       return wysihtml5.commands.formatBlock.exec(composer, "formatBlock", null, null, null, STYLE_STR, REG_EXP);
     },
@@ -13268,7 +13282,7 @@ wysihtml5.views.View = Base.extend(
     // Pass false to disable
     uneditableContainerClassname: "wysihtml5-uneditable-container",
     // Browsers that support copied source handling will get a marking of the origin of the copied source (for determinig code cleanup rules on paste)
-    // Also copied source is based directly on selection - 
+    // Also copied source is based directly on selection -
     // (very useful for webkit based browsers where copy will otherwise contain a lot of code and styles based on whatever and not actually in selection).
     // If falsy value is passed source override is also disabled
     copyedFromMarking: '<meta name="copied-from" content="wysihtml5">'

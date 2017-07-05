@@ -1,4 +1,4 @@
-// TODO: in future try to replace most inline compability checks with polyfills for code readability 
+// TODO: in future try to replace most inline compability checks with polyfills for code readability
 
 // element.textContent polyfill.
 // Unsupporting browsers: IE8
@@ -76,7 +76,7 @@ var wysihtml5 = {
         define(factory);
 /*
     TODO: look into this properly.
-    
+
     } else if (typeof exports == "object") {
         // Node/CommonJS style for Browserify
         module.exports = factory;
@@ -395,11 +395,11 @@ var wysihtml5 = {
                     throw new Error("required module '" + moduleName + "' not supported");
                 }
             }
-            
+
             // Now run initializer
             this.initializer(this);
         },
-        
+
         fail: function(reason) {
             this.initialized = true;
             this.supported = false;
@@ -419,7 +419,7 @@ var wysihtml5 = {
             return new Error("Error in Rangy " + this.name + " module: " + msg);
         }
     };
-    
+
     function createModule(isCore, name, dependencies, initFunc) {
         var newModule = new Module(name, dependencies, function(module) {
             if (!module.initialized) {
@@ -503,7 +503,7 @@ var wysihtml5 = {
     addListener(window, "load", loadHandler);
 
     /*----------------------------------------------------------------------------------------------------------------*/
-    
+
     // DOM utility methods used by Rangy
     api.createCoreModule("DomUtil", [], function(api, module) {
         var UNDEF = "undefined";
@@ -1479,7 +1479,7 @@ var wysihtml5 = {
             }
             range.setStartAndEnd(sc, so, ec, eo);
         }
-        
+
         function rangeToHtml(range) {
             assertRangeValid(range);
             var container = range.commonAncestorContainer.parentNode.cloneNode(false);
@@ -1778,7 +1778,7 @@ var wysihtml5 = {
                 this.setStartAfter(node);
                 this.collapse(true);
             },
-            
+
             getBookmark: function(containerNode) {
                 var doc = getRangeDocument(this);
                 var preSelectionRange = api.createRange(doc);
@@ -1798,7 +1798,7 @@ var wysihtml5 = {
                     containerNode: containerNode
                 };
             },
-            
+
             moveToBookmark: function(bookmark) {
                 var containerNode = bookmark.containerNode;
                 var charIndex = 0;
@@ -1840,11 +1840,11 @@ var wysihtml5 = {
             isValid: function() {
                 return isRangeValid(this);
             },
-            
+
             inspect: function() {
                 return inspect(this);
             },
-            
+
             detach: function() {
                 // In DOM4, detach() is now a no-op.
             }
@@ -1981,7 +1981,7 @@ var wysihtml5 = {
 
                     boundaryUpdater(this, sc, so, ec, eo);
                 },
-                
+
                 setBoundary: function(node, offset, isStart) {
                     this["set" + (isStart ? "Start" : "End")](node, offset);
                 },
@@ -2176,7 +2176,7 @@ var wysihtml5 = {
 
     /*----------------------------------------------------------------------------------------------------------------*/
 
-    // Wrappers for the browser's native DOM Range and/or TextRange implementation 
+    // Wrappers for the browser's native DOM Range and/or TextRange implementation
     api.createCoreModule("WrappedRange", ["DomRange"], function(api, module) {
         var WrappedRange, WrappedTextRange;
         var dom = api.dom;
@@ -2442,7 +2442,7 @@ var wysihtml5 = {
                 };
             })();
         }
-        
+
         if (api.features.implementsTextRange) {
             /*
             This is a workaround for a bug where IE returns the wrong container element from the TextRange's parentElement()
@@ -2564,11 +2564,11 @@ var wysihtml5 = {
                         For the particular case of a boundary within a text node containing rendered line breaks (within a
                         <pre> element, for example), we need a slightly complicated approach to get the boundary's offset in
                         IE. The facts:
-                        
+
                         - Each line break is represented as \r in the text node's data/nodeValue properties
                         - Each line break is represented as \r\n in the TextRange's 'text' property
                         - The 'text' property of the TextRange does not contain trailing line breaks
-                        
+
                         To get round the problem presented by the final fact above, we can use the fact that TextRange's
                         moveStart() and moveEnd() methods return the actual number of characters moved, which is not
                         necessarily the same as the number of characters it was instructed to move. The simplest approach is
@@ -2577,13 +2577,13 @@ var wysihtml5 = {
                         "move-negative-gazillion" method). However, this is extremely slow when the document is large and
                         the range is near the end of it. Clearly doing the mirror image (i.e. moving the range boundaries to
                         the end of the document) has the same problem.
-                        
+
                         Another approach that works is to use moveStart() to move the start boundary of the range up to the
                         end boundary one character at a time and incrementing a counter with the value returned by the
                         moveStart() call. However, the check for whether the start boundary has reached the end boundary is
                         expensive, so this method is slow (although unlike "move-negative-gazillion" is largely unaffected
                         by the location of the range within the document).
-                        
+
                         The approach used below is a hybrid of the two methods above. It uses the fact that a string
                         containing the TextRange's 'text' property with each \r\n converted to a single \r character cannot
                         be longer than the text of the TextRange, so the start of the range is moved that length initially
@@ -2839,7 +2839,7 @@ var wysihtml5 = {
         function getDocSelection(winParam) {
             return getWindow(winParam, "getDocSelection").document.selection;
         }
-        
+
         function winSelectionIsBackward(sel) {
             var backward = false;
             if (sel.anchorNode) {
@@ -2890,7 +2890,7 @@ var wysihtml5 = {
         // Test for existence of native selection extend() method
         var selectionHasExtend = isHostMethod(testSelection, "extend");
         features.selectionHasExtend = selectionHasExtend;
-        
+
         // Test if rangeCount exists
         var selectionHasRangeCount = (typeof testSelection.rangeCount == NUMBER);
         features.selectionHasRangeCount = selectionHasRangeCount;
@@ -2924,11 +2924,11 @@ var wysihtml5 = {
                     var originalSelectionRangeCount = sel.rangeCount;
                     var selectionHasMultipleRanges = (originalSelectionRangeCount > 1);
                     var originalSelectionRanges = [];
-                    var originalSelectionBackward = winSelectionIsBackward(sel); 
+                    var originalSelectionBackward = winSelectionIsBackward(sel);
                     for (var i = 0; i < originalSelectionRangeCount; ++i) {
                         originalSelectionRanges[i] = sel.getRangeAt(i);
                     }
-                    
+
                     // Create some test elements
                     var body = getBody(document);
                     var testEl = body.appendChild( document.createElement("div") );
@@ -3647,7 +3647,7 @@ var wysihtml5 = {
             } );
             return results;
         };
-        
+
         function createStartOrEndSetter(isStart) {
             return function(node, offset) {
                 var range;
@@ -3664,7 +3664,7 @@ var wysihtml5 = {
 
         selProto.setStart = createStartOrEndSetter(true);
         selProto.setEnd = createStartOrEndSetter(false);
-        
+
         // Add select() method to Range prototype. Any existing selection will be removed.
         api.rangePrototype.select = function(direction) {
             getSelection( this.getDocument() ).setSingleRange(this, direction);
@@ -3730,7 +3730,7 @@ var wysihtml5 = {
                     if (isTextRange(range)) {
                         return range;
                     } else {
-                        throw module.createError("getNativeTextRange: selection is a control selection"); 
+                        throw module.createError("getNativeTextRange: selection is a control selection");
                     }
                 } else if (this.rangeCount > 0) {
                     return api.WrappedTextRange.rangeToTextRange( this.getRangeAt(0) );
@@ -3788,7 +3788,7 @@ var wysihtml5 = {
             win = null;
         });
     });
-    
+
 
     /*----------------------------------------------------------------------------------------------------------------*/
 
@@ -4041,7 +4041,7 @@ var wysihtml5 = {
             removeMarkers: removeMarkers
         });
     });
-    
+
 }, this);;/*
 	Base.js, version 1.1a
 	Copyright 2006-2010, Dean Edwards
@@ -4054,7 +4054,7 @@ var Base = function() {
 
 Base.extend = function(_instance, _static) { // subclass
 	var extend = Base.prototype.extend;
-	
+
 	// build the prototype
 	Base._prototyping = true;
 	var proto = new this;
@@ -4063,7 +4063,7 @@ Base.extend = function(_instance, _static) { // subclass
     // call this method from any other method to invoke that method's ancestor
   };
 	delete Base._prototyping;
-	
+
 	// create the wrapper for the constructor function
 	//var constructor = proto.constructor.valueOf(); //-dean
 	var constructor = proto.constructor;
@@ -4078,7 +4078,7 @@ Base.extend = function(_instance, _static) { // subclass
 			}
 		}
 	};
-	
+
 	// build the class interface
 	klass.ancestor = this;
 	klass.extend = this.extend;
@@ -4096,7 +4096,7 @@ Base.extend = function(_instance, _static) { // subclass
 	return klass;
 };
 
-Base.prototype = {	
+Base.prototype = {
 	extend: function(source, value) {
 		if (arguments.length > 1) { // extending with a name/value pair
 			var ancestor = this[source];
@@ -4155,7 +4155,7 @@ Base = Base.extend({
 }, {
 	ancestor: Object,
 	version: "1.1",
-	
+
 	forEach: function(object, block, context) {
 		for (var key in object) {
 			if (this.prototype[key] === undefined) {
@@ -4163,7 +4163,7 @@ Base = Base.extend({
 			}
 		}
 	},
-		
+
 	implement: function() {
 		for (var i = 0; i < arguments.length; i++) {
 			if (typeof arguments[i] == "function") {
@@ -4176,7 +4176,7 @@ Base = Base.extend({
 		}
 		return this;
 	},
-	
+
 	toString: function() {
 		return String(this.valueOf());
 	}
@@ -5337,7 +5337,7 @@ wysihtml5.dom.copyAttributes = function(attributesToCopy) {
       prev: function(options) {
         var prevNode = node.previousSibling,
             types = (options && options.nodeTypes) ? options.nodeTypes : defaultNodeTypes;
-        
+
         if (!prevNode) {
           return null;
         }
@@ -5348,7 +5348,7 @@ wysihtml5.dom.copyAttributes = function(attributesToCopy) {
         ) {
           return wysihtml5.dom.domNode(prevNode).prev(options);
         }
-        
+
         return prevNode;
       },
 
@@ -5356,7 +5356,7 @@ wysihtml5.dom.copyAttributes = function(attributesToCopy) {
       next: function(options) {
         var nextNode = node.nextSibling,
             types = (options && options.nodeTypes) ? options.nodeTypes : defaultNodeTypes;
-        
+
         if (!nextNode) {
           return null;
         }
@@ -5367,7 +5367,7 @@ wysihtml5.dom.copyAttributes = function(attributesToCopy) {
         ) {
           return wysihtml5.dom.domNode(nextNode).next(options);
         }
-        
+
         return nextNode;
       }
 
@@ -8301,12 +8301,12 @@ wysihtml5.dom.query = function(elements, query) {
     }
     node.parentNode.removeChild(node);
   }
-};;/* 
+};;/*
  * Methods for fetching pasted html before it gets inserted into content
 **/
 
 /* Modern event.clipboardData driven approach.
- * Advantage is that it does not have to loose selection or modify dom to catch the data. 
+ * Advantage is that it does not have to loose selection or modify dom to catch the data.
  * IE does not support though.
 **/
 wysihtml5.dom.getPastedHtml = function(event) {
@@ -8326,7 +8326,7 @@ wysihtml5.dom.getPastedHtmlWithDiv = function (composer, f) {
   var selBookmark = composer.selection.getBookmark(),
       doc = composer.element.ownerDocument,
       cleanerDiv = doc.createElement('DIV');
-  
+
   doc.body.appendChild(cleanerDiv);
 
   cleanerDiv.style.width = "1px";
@@ -9007,7 +9007,7 @@ wysihtml5.quirks.ensureProperClearing = (function() {
           s = this.getSelection(),
           range = this.getRange(),
           startNode = range.startContainer;
-      
+
       if (startNode.nodeType === wysihtml5.TEXT_NODE) {
         return this.isCollapsed() && (startNode.nodeType === wysihtml5.TEXT_NODE && (/^\s*$/).test(startNode.data.substr(0,range.startOffset)));
       } else {
@@ -10931,7 +10931,7 @@ wysihtml5.commands.formatCode = {
 
   function _getApplier(tagName, className, classRegExp, cssStyle, styleRegExp, container) {
     var identifier = tagName;
-    
+
     if (className) {
       identifier += ":" + className;
     }
@@ -11049,7 +11049,7 @@ wysihtml5.commands.formatCode = {
           if (composer.selection.isCollapsed()) {
             composer.selection.selectLine();
           }
-          
+
           if (endToEndParent) {
             var qouteEl = endToEndParent.ownerDocument.createElement('blockquote');
             wysihtml5.dom.insert(qouteEl).after(endToEndParent);
@@ -11333,10 +11333,10 @@ wysihtml5.commands.formatCode = {
           }),
           isEmpty, list;
 
-      // This space causes new lists to never break on enter 
+      // This space causes new lists to never break on enter
       var INVISIBLE_SPACE_REG_EXP = /\uFEFF/g;
       tempElement.innerHTML = tempElement.innerHTML.replace(INVISIBLE_SPACE_REG_EXP, "");
-      
+
       if (tempElement) {
         isEmpty = wysihtml5.lang.array(["", "<br>", wysihtml5.INVISIBLE_SPACE]).contains(tempElement.innerHTML);
         list = wysihtml5.dom.convertToList(tempElement, nodeName.toLowerCase(), composer.parent.config.uneditableContainerClassname);
@@ -11478,6 +11478,20 @@ wysihtml5.commands.formatCode = {
       REG_EXP = /(\s|^)text-align\s*:\s*[^;\s]+;?/gi;
 
   wysihtml5.commands.alignCenterStyle = {
+    exec: function(composer, command) {
+      return wysihtml5.commands.formatBlock.exec(composer, "formatBlock", null, null, null, STYLE_STR, REG_EXP);
+    },
+
+    state: function(composer, command) {
+      return wysihtml5.commands.formatBlock.state(composer, "formatBlock", null, null, null, STYLE_STR, REG_EXP);
+    }
+  };
+})(wysihtml5);
+;(function(wysihtml5) {
+  var STYLE_STR  = "text-align: justify;",
+      REG_EXP = /(\s|^)text-align\s*:\s*[^;\s]+;?/gi;
+
+  wysihtml5.commands.alignJustifyStyle = {
     exec: function(composer, command) {
       return wysihtml5.commands.formatBlock.exec(composer, "formatBlock", null, null, null, STYLE_STR, REG_EXP);
     },
@@ -13265,7 +13279,7 @@ wysihtml5.views.View = Base.extend(
     // Pass false to disable
     uneditableContainerClassname: "wysihtml5-uneditable-container",
     // Browsers that support copied source handling will get a marking of the origin of the copied source (for determinig code cleanup rules on paste)
-    // Also copied source is based directly on selection - 
+    // Also copied source is based directly on selection -
     // (very useful for webkit based browsers where copy will otherwise contain a lot of code and styles based on whatever and not actually in selection).
     // If falsy value is passed source override is also disabled
     copyedFromMarking: '<meta name="copied-from" content="wysihtml5">'
@@ -14670,7 +14684,7 @@ function program33(depth0,data) {
   buffer += "<li>\n  <div class=\"btn-group\">\n    <a class=\"btn ";
   stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.size), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += " btn-default\" data-wysihtml5-command=\"justifyLeft\" title=\""
+  buffer += " btn-default\" data-wysihtml5-command=\"alignLeftStyle\" title=\""
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.locale)),stack1 == null || stack1 === false ? stack1 : stack1.lists)),stack1 == null || stack1 === false ? stack1 : stack1.leftAlign)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "\" tabindex=\"-1\">\n    ";
   stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(5, program5, data),fn:self.program(3, program3, data),data:data});
@@ -14678,7 +14692,7 @@ function program33(depth0,data) {
   buffer += "\n    </a>\n    <a class=\"btn ";
   stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.size), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += " btn-default\" data-wysihtml5-command=\"justifyCenter\" title=\""
+  buffer += " btn-default\" data-wysihtml5-command=\"alignCenterStyle\" title=\""
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.locale)),stack1 == null || stack1 === false ? stack1 : stack1.lists)),stack1 == null || stack1 === false ? stack1 : stack1.centerAlign)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "\" tabindex=\"-1\">\n    ";
   stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(9, program9, data),fn:self.program(7, program7, data),data:data});
@@ -14686,20 +14700,20 @@ function program33(depth0,data) {
   buffer += "\n    </a>\n    <a class=\"btn ";
   stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.size), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += " btn-default\" data-wysihtml5-command=\"justifyRight\" title=\""
+  buffer += " btn-default\" data-wysihtml5-command=\"alignRightStyle\" title=\""
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.locale)),stack1 == null || stack1 === false ? stack1 : stack1.lists)),stack1 == null || stack1 === false ? stack1 : stack1.rightAlign)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "\" tabindex=\"-1\">\n    ";
   stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(13, program13, data),fn:self.program(11, program11, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n    </a>\n    <!--<a class=\"btn ";
+  buffer += "\n    </a>\n    <a class=\"btn ";
   stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.size), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += " btn-default\" data-wysihtml5-command=\"justifyFull\" title=\""
+  buffer += " btn-default\" data-wysihtml5-command=\"alignJustifyStyle\" title=\""
     + escapeExpression(((stack1 = ((stack1 = ((stack1 = (depth0 && depth0.locale)),stack1 == null || stack1 === false ? stack1 : stack1.lists)),stack1 == null || stack1 === false ? stack1 : stack1.justifyAlign)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "\" tabindex=\"-1\">\n    ";
   stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.fa), {hash:{},inverse:self.program(17, program17, data),fn:self.program(15, program15, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n  </a>-->\n    <a class=\"btn ";
+  buffer += "\n    </a>\n    <a class=\"btn ";
   stack1 = helpers['if'].call(depth0, ((stack1 = ((stack1 = (depth0 && depth0.options)),stack1 == null || stack1 === false ? stack1 : stack1.toolbar)),stack1 == null || stack1 === false ? stack1 : stack1.size), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += " btn-default\" data-wysihtml5-command=\"insertUnorderedList\" title=\""
@@ -14997,516 +15011,25 @@ function program33(depth0,data) {
        "tags": {
         "a": {
          "check_attributes": {
-          "href": "href",
-          "id": "any",
-          "rel": "any",
-          "target": "any"
+          "href": "url"
+         },
+         "set_attributes": {
+          "rel": "nofollow",
+          "target": "_blank"
          }
-        },
-        "abbr": {
-         "unwrap": 1
-        },
-        "acronym": {
-         "rename_tag": "span"
-        },
-        "address": {
-         "unwrap": 1
-        },
-        "applet": {
-         "remove": 1
-        },
-        "area": {
-         "remove": 1
-        },
-        "article": null,
-        "aside": null,
-        "audio": {
-         "remove": 1
         },
         "b": {},
-        "base": {
-         "remove": 1
-        },
-        "basefont": {
-         "remove": 1
-        },
-        "bdi": {
-         "unwrap": 1
-        },
-        "bdo": {
-         "unwrap": 1
-        },
-        "bgsound": {
-         "remove": 1
-        },
-        "big": {
-         "rename_tag": "span",
-         "set_class": "wysiwyg-font-size-larger"
-        },
-        "blink": {
-         "unwrap": 1
-        },
-        "blockquote": {
-         "add_style": {
-          "align": "align_text"
-         },
-         "check_attributes": {
-          "cite": "url",
-          "id": "any"
-         },
-         "keep_styles": {
-          "float": 1,
-          "textAlign": 1
-         }
-        },
-        "body": {
-         "unwrap": 1
-        },
-        "br": {
-         "add_class": {
-          "clear": "clear_br"
-         }
-        },
-        "button": {
-         "unwrap": 1
-        },
-        "canvas": {
-         "remove": 1
-        },
-        "caption": null,
-        "center": null,
-        "cite": {},
-        "code": {},
-        "col": {
-         "remove": 1
-        },
-        "colgroup": {
-         "remove": 1
-        },
-        "command": {
-         "unwrap": 1
-        },
-        "comment": {
-         "remove": 1
-        },
-        "datalist": {
-         "unwrap": 1
-        },
-        "dd": {
-         "unwrap": 1
-        },
-        "del": {
-         "unwrap": 1
-        },
-        "details": {
-         "unwrap": 1
-        },
-        "device": {
-         "remove": 1
-        },
-        "dfn": {
-         "unwrap": 1
-        },
-        "dir": {
-         "rename_tag": "ul"
-        },
-        "div": {
-         "add_style": {
-          "align": "align_text"
-         },
-         "check_attributes": {
-          "contenteditable": "any",
-          "id": "any"
-         },
-         "keep_styles": {
-          "float": 1,
-          "textAlign": 1
-         },
-         "one_of_type": {
-          "alignment_object": 1
-         },
-         "remove_action": "unwrap"
-        },
-        "dl": {
-         "unwrap": 1
-        },
-        "dt": {
-         "unwrap": 1
-        },
+        "br": {},
+        "div": {},
         "em": {},
-        "embed": {
-         "remove": 1
-        },
-        "fieldset": {
-         "unwrap": 1
-        },
-        "figcaption": {
-         "unwrap": 1
-        },
-        "figure": {
-         "unwrap": 1
-        },
-        "font": {
-         "add_class": {
-          "size": "size_font"
-         },
-         "rename_tag": "span"
-        },
-        "footer": {
-         "add_style": {
-          "align": "align_text"
-         },
-         "check_attributes": {
-          "id": "any"
-         },
-         "keep_styles": {
-          "float": 1,
-          "textAlign": 1
-         },
-         "one_of_type": {
-          "alignment_object": 1
-         },
-         "remove_action": "unwrap",
-         "rename_tag": "div"
-        },
-        "form": {
-         "unwrap": 1
-        },
-        "frame": {
-         "remove": 1
-        },
-        "frameset": {
-         "remove": 1
-        },
-        "h1": null,
-        "h2": null,
-        "h3": null,
-        "h4": {
-         "add_style": {
-          "align": "align_text"
-         },
-         "check_attributes": {
-          "id": "any"
-         },
-         "keep_styles": {
-          "float": 1,
-          "textAlign": {}
-         }
-        },
-        "h5": null,
-        "h6": null,
-        "head": {
-         "unwrap": 1
-        },
-        "header": null,
-        "hgroup": {
-         "unwrap": 1
-        },
-        "hr": {},
-        "html": {
-         "unwrap": 1
-        },
         "i": {},
-        "iframe": {
-         "check_attributes": {
-          "frameborder": "any",
-          "height": "any",
-          "id": "any",
-          "src": "any",
-          "style": "any",
-          "width": "any"
-         }
-        },
-        "img": {
-         "add_class": {
-          "align": "align_img"
-         },
-         "check_attributes": {
-          "alt": "alt",
-          "height": "numbers",
-          "id": "any",
-          "src": "src",
-          "width": "numbers"
-         },
-         "one_of_type": {
-          "valid_image_src": 1
-         }
-        },
-        "input": {
-         "remove": 1
-        },
-        "ins": {
-         "unwrap": 1
-        },
-        "isindex": {
-         "remove": 1
-        },
-        "kbd": {
-         "unwrap": 1
-        },
-        "keygen": {
-         "remove": 1
-        },
-        "label": {
-         "unwrap": 1
-        },
-        "legend": {
-         "unwrap": 1
-        },
         "li": {},
-        "link": {
-         "remove": 1
-        },
-        "listing": {
-         "unwrap": 1
-        },
-        "map": {
-         "remove": 1
-        },
-        "mark": {
-         "unwrap": 1
-        },
-        "marquee": {
-         "unwrap": 1
-        },
-        "menu": {
-         "rename_tag": "ul"
-        },
-        "meta": {
-         "remove": 1
-        },
-        "meter": {
-         "unwrap": 1
-        },
-        "multicol": {
-         "unwrap": 1
-        },
-        "nav": {
-         "unwrap": 1
-        },
-        "nextid": {
-         "remove": 1
-        },
-        "nobr": {
-         "unwrap": 1
-        },
-        "noembed": {
-         "remove": 1
-        },
-        "noframes": {
-         "remove": 1
-        },
-        "noscript": {
-         "remove": 1
-        },
-        "object": {
-         "remove": 1
-        },
         "ol": {},
-        "optgroup": {
-         "unwrap": 1
-        },
-        "option": {
-         "remove": 1
-        },
-        "output": {
-         "unwrap": 1
-        },
-        "p": null,
-        "param": {
-         "remove": 1
-        },
-        "plaintext": {
-         "unwrap": 1
-        },
-        "pre": {},
-        "progress": {
-         "rename_tag": "span"
-        },
-        "q": {
-         "check_attributes": {
-          "cite": "url",
-          "id": "any"
-         }
-        },
-        "rb": {
-         "unwrap": 1
-        },
-        "rp": {
-         "unwrap": 1
-        },
-        "rt": {
-         "rename_tag": "span"
-        },
-        "ruby": {
-         "unwrap": 1
-        },
-        "s": {
-         "unwrap": 1
-        },
-        "samp": {
-         "unwrap": 1
-        },
-        "script": {
-         "check_attributes": {
-          "charset": "any",
-          "src": "any",
-          "type": "any"
-         }
-        },
-        "section": null,
-        "select": {
-         "remove": 1
-        },
-        "small": {
-         "rename_tag": "span",
-         "set_class": "wysiwyg-font-size-smaller"
-        },
-        "source": {
-         "remove": 1
-        },
-        "spacer": {
-         "remove": 1
-        },
-        "span": {
-         "check_attributes": {
-          "id": "any"
-         },
-         "keep_styles": {
-          "backgroundColor": 1,
-          "color": 1,
-          "fontSize": 1
-         },
-         "one_of_type": {
-          "text_color_object": 1,
-          "text_fontsize_object": 1,
-          "text_formatting_object": 1
-         },
-         "remove_action": "unwrap"
-        },
-        "strike": {
-         "unwrap": 1
-        },
+        "p": {},
+        "span": {},
         "strong": {},
-        "style": {
-         "check_attributes": {
-          "charset": "any",
-          "src": "any",
-          "type": "any"
-         }
-        },
-        "sub": {
-         "unwrap": 1
-        },
-        "summary": {
-         "unwrap": 1
-        },
-        "sup": {
-         "unwrap": 1
-        },
-        "svg": {
-         "remove": 1
-        },
-        "table": {
-         "check_attributes": {
-          "id": "any"
-         },
-         "keep_styles": {
-          "float": 1,
-          "textAlign": 1,
-          "width": 1
-         }
-        },
-        "tbody": null,
-        "td": {
-         "add_style": {
-          "align": "align_text"
-         },
-         "check_attributes": {
-          "align": "any",
-          "class": "any",
-          "colspan": "numbers",
-          "id": "any",
-          "rowspan": "numbers",
-          "valign": "any"
-         },
-         "keep_styles": {
-          "backgroundColor": 1,
-          "height": 1,
-          "width": 1
-         }
-        },
-        "textarea": {
-         "unwrap": 1
-        },
-        "tfoot": null,
-        "th": {
-         "add_style": {
-          "align": "align_text"
-         },
-         "check_attributes": {
-          "align": "any",
-          "colspan": "numbers",
-          "id": "any",
-          "rowspan": "numbers",
-          "valign": "any"
-         },
-         "keep_styles": {
-          "backgroundColor": 1,
-          "height": 1,
-          "width": 1
-         }
-        },
-        "thead": {
-         "add_style": {
-          "align": "align_text"
-         },
-         "check_attributes": {
-          "id": "any"
-         }
-        },
-        "time": {
-         "unwrap": 1
-        },
-        "title": {
-         "remove": 1
-        },
-        "tr": {
-         "add_style": {
-          "align": "align_text"
-         },
-         "check_attributes": {
-          "id": "any"
-         }
-        },
-        "track": {
-         "remove": 1
-        },
-        "tt": {
-         "unwrap": 1
-        },
-        "u": {},
-        "ul": {
-         "check_attributes": {
-          "id": "any"
-         }
-        },
-        "var": {
-         "unwrap": 1
-        },
-        "video": {
-         "remove": 1
-        },
-        "wbr": {
-         "remove": 1
-        },
-        "xml": {
-         "remove": 1
-        },
-        "xmp": {
-         "unwrap": 1
-        }
-       },
+        "ul": {}
+      },
        "type_definitions": {
         "alignment_object": {
          "classes": {
@@ -15593,7 +15116,7 @@ function program33(depth0,data) {
         }
        }
       },
-      locale: 'en',
+      locale: 'pt-BR',
       shortcuts: {
         '83': 'small',// S
         '75': 'createLink'// K
