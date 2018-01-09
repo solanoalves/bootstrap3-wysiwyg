@@ -202,3 +202,34 @@ ul.wysihtml5-toolbar div[data-wysihtml5-command-value="orange"] {
 blockquote, blockquote p {
     font-size: 1em;
 }
+
+.wysiwyg-color-black {
+		color: black;
+}
+.wysiwyg-color-blue {
+	color: blue;
+}
+.wysiwyg-color-gray {
+	color: gray;
+}
+.wysiwyg-color-green {
+	color: green;
+}
+.wysiwyg-color-maroon {
+	color: maroon;
+}
+.wysiwyg-color-navy {
+	color: navy;
+}
+.wysiwyg-color-olive {
+	color: olive;
+}
+.wysiwyg-color-purple {
+	color: purple;
+}
+.wysiwyg-color-red {
+	color: red;
+}
+.wysiwyg-color-silver {
+	color: silver;
+}
